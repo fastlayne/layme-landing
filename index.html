@@ -3,233 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Layme — Uncensored AI</title>
+  <title>"Layme" - Uncensored AI</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       font-family: 'Manrope', sans-serif;
-      background: linear-gradient(to bottom, #f7f4f1, #e7d9c4);
+      background: linear-gradient(to bottom, #e7d9c4, #f3f0e8);
       background-image: url('https://www.transparenttextures.com/patterns/clouds.png');
       background-repeat: repeat;
       background-size: 400px;
-      color: #2a1e1e;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-
-    .hero-section {
+      color: #3b2f2f;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      padding: 2em;
       text-align: center;
+      padding-top: 60px;
     }
-
-    .hero-title {
+    .hero {
       font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      margin-bottom: 1rem;
-      color: #1f1b1b;
-      letter-spacing: -1px;
-      animation: fadeIn 1.5s ease-in-out;
+      font-size: 9rem;
+      margin: 0.5em 0 0.2em;
+      line-height: 1.1;
     }
-
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .logo-img {
-      max-height: 260px;
-      width: auto;
-      filter: drop-shadow(12px 12px 28px rgba(0, 0, 0, 0.25));
-      animation: pulse 4s infinite ease-in-out;
-      transition: transform 0.4s ease;
-    }
-
-    .logo-img:hover {
-      transform: scale(1.05);
-    }
-
-    .tagline {
-      font-size: 1.5rem;
+    p {
+      font-size: 1.25rem;
       max-width: 700px;
       margin-bottom: 2em;
-      color: #3b2f2f;
-      line-height: 1.8;
-      animation: fadeIn 2s ease-in-out 0.3s both;
     }
-
-    .about-toggle {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 0.6em 1.4em;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      margin: 1rem;
+    .cloud-box {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 2.5em;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      width: 90%;
+      max-width: 800px;
     }
-
-    .about-toggle:hover {
-      background-color: #f1ebe6;
+    .cloud-box:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
-
-    .about-section {
-      max-width: 720px;
-      margin: 2em auto 0;
-      font-size: 1rem;
-      color: #5f5b5b;
-      line-height: 1.6;
-      display: none;
-      animation: slideIn 0.7s ease-in-out;
+    .logo {
+      position: absolute;
+      top: 1.2em;
+      right: 1.5em;
+      opacity: 0.15;
+      width: 60px;
+      height: auto;
+      image-rendering: pixelated;
     }
-
-    .contact {
-      font-size: 1.2rem;
-      margin-top: 3rem;
-      color: #444;
-    }
-
-    .contact a {
-      color: #e08660;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     .footer {
-      margin-top: 4rem;
+      margin-top: 3em;
+      font-size: 0.9rem;
+      color: #665f5f;
+    }
+    .chatbox {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2em;
+      gap: 1em;
+    }
+    .chat-log {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 1em;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .chat-log div {
+      margin-bottom: 0.75em;
+    }
+    .chat-input {
+      display: flex;
+      gap: 0.5em;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 0.75em;
+      border: none;
+      border-radius: 0.5em;
+      font-size: 1rem;
+    }
+    .chat-input button {
+      padding: 0.75em 1.25em;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5em;
+      background: #3b2f2f;
+      color: white;
+      cursor: pointer;
+    }
+    .disclaimer {
       font-size: 0.9rem;
       color: #888;
-    }
-
-    .disclaimer-note {
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #333;
-      max-width: 600px;
-    }
-
-    .asterisk-info {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .asterisk-info::after {
-      content: "\2605";
-      font-size: 1.2rem;
-      color: #e08660;
-      margin-left: 0.4rem;
-    }
-
-    .tooltip {
-      visibility: hidden;
-      width: 280px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 10px;
-      position: absolute;
-      z-index: 1;
-      bottom: 150%;
-      left: 50%;
-      margin-left: -140px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .asterisk-info:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin-top: 1em;
     }
   </style>
 </head>
 <body>
-  <div class="hero-section">
-    <h1 class="hero-title">Introducing</h1>
-    <div class="logo-container">
-      <img src="layme-logo-colored.png" alt="Layme Logo" class="logo-img" />
-    </div>
-    <div class="tagline">
+  <div class="cloud-box">
+    <img class="logo" src="/layme-logo-colored.png" alt="Layme Logo">
+    <h1 class="hero">Introducing <span style="color: #e08660;">"Layme"</span></h1>
+    <p>
       Model Version: <strong>v1</strong><br>
       Bold. Honest. Unfiltered.<br />
-      <strong>Uncensored AI</strong> — always unbiased, never judgmental.<br>
-      <br>
+      <strong>Uncensored AI</strong> — always unbiased, never judgmental.<br />
+      <br />
       <em>Coming soon to justlay.me</em>
-    </div>
-
-    <button class="about-toggle" onclick="toggleAbout()">About Layme</button>
-
-    <div class="about-section" id="about">
-      <p>
-        Layme is your unapologetically real AI. It’s not here to sugarcoat or sidestep.
-        Designed for thinkers, creators, rebels and lovers of truth. Mature content ahead.
-        This ain’t ya mamma’s ChatGPT.
-      </p>
-      <p>
-        Built for privacy. Built for depth. Built for you.
-      </p>
-    </div>
-
-    <div class="disclaimer-note">
-      From the truly uncensored intelligent chats about controversial topics to the
-      Truly unfiltered role playing — this model will never stop the conversation
-      <span class="asterisk-info">
-        <span class="tooltip">
-          This AI model is capable of mature content and responses not meant for children.<br>
-          User discretion is advised.
-        </span>
-      </span>
-    </div>
-
-    <div class="contact">
-      Contact us at <a href="mailto:please@justlay.me">please@justlay.me</a>
-    </div>
-
-    <div class="footer">
-      &copy; 2025 justlay.me — All rights reserved.
+    </p>
+    <p class="disclaimer">
+      ⚠️ Mature content. For users 18+ only.<br>
+      <span style="font-style: italic;">this ain't ya mamma's ChatGPT</span>
+    </p>
+    <div class="chatbox">
+      <div class="chat-log" id="chat-log"></div>
+      <form class="chat-input" id="chat-form">
+        <input type="text" id="user-input" placeholder="Say something..." required />
+        <button type="submit">Send</button>
+      </form>
     </div>
   </div>
-
+  <div class="footer">
+    &copy; 2025 justlay.me — All rights reserved.
+  </div>
   <script>
-    function toggleAbout() {
-      const about = document.getElementById('about');
-      if (about.style.display === 'block') {
-        about.style.display = 'none';
-      } else {
-        about.style.display = 'block';
-        about.scrollIntoView({ behavior: 'smooth' });
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const log = document.getElementById('chat-log');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      log.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;
+      input.value = '...';
+      try {
+        const res = await fetch('https://api.justlay.me/v1/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': '' // Add your LM Studio API key if required
+          },
+          body: JSON.stringify({
+            messages: [{ role: 'user', content: userText }]
+          })
+        });
+        const data = await res.json();
+        const reply = data.choices?.[0]?.message?.content || 'No response.';
+        log.innerHTML += `<div><strong>Layme:</strong> ${reply}</div>`;
+      } catch (err) {
+        log.innerHTML += `<div><strong>Layme:</strong> Error talking to model.</div>`;
+        console.error(err);
+      } finally {
+        input.value = '';
+        log.scrollTop = log.scrollHeight;
       }
-    }
+    });
   </script>
 </body>
 </html>
+
 
