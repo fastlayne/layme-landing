@@ -49,87 +49,55 @@
       margin-bottom: 2em;
       line-height: 1.6;
     }
-    
-    .cloud-box {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 3em;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease-in-out;
-      position: relative;
-      max-width: 800px;
-      width: 90%;
-    }
-    
-    .cloud-box:hover {
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
-    }
-    
-    .warning {
-      font-size: 0.95rem;
-      color: #888;
+
+    .contact {
+      font-size: 1.15rem;
       margin-top: 2em;
-    }
-    
-    .tagline {
-      font-size: 1.1rem;
       color: #444;
-      font-style: italic;
-      margin-top: 0.5em;
     }
-    
+
+    .contact a {
+      color: #e08660;
+      text-decoration: none;
+    }
+
     .footer {
       margin-top: 3em;
       font-size: 0.9rem;
       color: #665f5f;
-      opacity: 0.8;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .hero {
-        font-size: 6rem;
-      }
-      .logo-img {
-        height: 8rem;
-      }
-      .cloud-box {
-        padding: 2em;
-        margin: 1em;
-      }
     }
   </style>
 </head>
 <body>
   <div class="cloud-box">
     <h1 class="hero">Introducing</h1>
-    
     <div class="logo-container">
-      <img src="./layme-logo-colored.png" alt="Layme" class="logo-img" />
+      <img src="layme-logo-colored.png" alt="Layme Logo" class="logo-img" />
     </div>
-    
     <div class="content">
       <p>
-        <strong>Model Version: v1</strong><br>
+        Model Version: <strong>v1</strong><br />
         Bold. Honest. Unfiltered.<br />
         <strong>Uncensored AI</strong> — always unbiased, never judgmental.
       </p>
-      
-      <p style="font-style: italic; color: #666;">
-        Coming soon to justlay.me
+      <p><em>Coming soon to justlay.me</em></p>
+      <p style="font-size: 0.9rem; color: #888;">
+        ⚠️ Mature content. For users 18+ only.<br />
+        <span style="font-size: 1rem; color: #444; font-style: italic;">
+          this ain't ya mamma's ChatGPT
+        </span>
       </p>
-      
-      <div class="warning">
-        ⚠️ Mature content. For users 18+ only.<br>
-        <span class="tagline">this ain't ya mamma's ChatGPT</span>
-      </div>
+
+      <!-- Contact Section -->
+      <p class="contact">
+        📬 Contact us at <a href="mailto:please@justlay.me">please@justlay.me</a><br>
+        for any Q&A — we’d love to hear from you!
+      </p>
     </div>
   </div>
-  
   <div class="footer">
-    © 2025 justlay.me — All rights reserved.
+    &copy; 2025 justlay.me — All rights reserved.
   </div>
 </body>
 </html>
+
