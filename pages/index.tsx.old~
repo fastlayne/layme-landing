@@ -15,10 +15,11 @@ export default function Home() {
     setResponse("");
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch("https://api.justlay.me/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer lm-studio",
         },
         body: JSON.stringify({
           messages: [{ role: "user", content: input }],
@@ -113,4 +114,5 @@ export default function Home() {
     </>
   );
 }
+
 
